@@ -54,10 +54,9 @@ async def remove_role(interaction: discord.Interaction, emoji: str, role: discor
 
 
 @bot.command(name="mami")
-async def chat_gpt(ctx, *args):
+async def chat_gpt(ctx, *, arg):
     try:
-        args = [re.sub('[^A-Za-z0-9\\!\\?\\"]+', '', arg) for arg in args]
-        content = ' '.join(args)
+        content = re.sub('[^A-Za-z0-9\\!\\?\\"]+', '', arg)
 
         messages.append({"role": "user", "content": content})
 
